@@ -1,0 +1,60 @@
+version: 2.1
+
+# -------------------------
+#          ORBS
+# -------------------------
+orbs:
+  terraform_circle: circleci/terraform@3.0.0
+  terraform: suzuki-shunsuke/terraform@0.2.8
+# -------------------------
+#     REFERENCES
+# -------------------------
+references:
+  only_main: &only_main
+    branches:
+      only: main
+  not_main: &not_main
+    branches:
+      ignore: main
+
+workflows:
+  build:
+    jobs:
+      - terraform/setup:
+          custom_setup:
+            - terraform/install_tflint:
+                install_dir: .orb-terraform/bin
+            - run:
+                command: |
+                  tfenv install
+                name: tfenv install
+                shell: /bin/bash -eu -o pipefail
+          name: setup
+      - terraform/test:
+          custom_tests:
+            - terraform/tflint:
+                dir: .
+          dir: .
+          name: test main
+          requires:
+            - setup
+          tfnotify_config_path: .tfnotify.yaml
+      - terraform/check_changed:
+          name: Check changed states
+          requires:
+            - setup
+            - test main
+      - hold:
+            name: hold_apply
+            type: approval
+            requires:
+              - Check changed states
+      - terraform/apply:
+          filters:
+            branches:
+              only:
+                - circle
+          name: apply
+          requires:
+            - hold_apply
+          tfnotify_config_path: .tfnotify.yaml
