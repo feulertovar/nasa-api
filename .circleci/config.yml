@@ -37,6 +37,7 @@ workflows:
   terraform:
     jobs:
       - terraform/setup:
+          context: terraform
           custom_setup:
             - terraform/install_tflint:
                 install_dir: .orb-terraform/bin
@@ -47,6 +48,7 @@ workflows:
                 shell: /bin/bash -eu -o pipefail
           name: setup
       - terraform/test:
+          context: terraform
           custom_tests:
             - terraform/tflint:
                 dir: .
@@ -56,6 +58,7 @@ workflows:
             - setup
           tfnotify_config_path: .tfnotify.yaml
       - terraform/check_changed:
+          context: terraform
           name: Check changed states
           requires:
             - setup
@@ -66,6 +69,7 @@ workflows:
             requires:
               - Check changed states
       - terraform/apply: #  review and apply plan
+          context: terraform
           filters:
             branches:
               only:
