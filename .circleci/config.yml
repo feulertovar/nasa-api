@@ -28,9 +28,9 @@ jobs:
     steps:
       - checkout
       - aws-s3/copy:
-          arguments: '--dryrun'
+          arguments: ''
           from: /web/*.*
-          to: 's3://nasa-api-web/nasa-api'
+          to: 's3://nasa-api-web'
 
 workflows:
 #terraform deploy workflow
