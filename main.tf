@@ -21,9 +21,9 @@ terraform {
 resource "aws_s3_bucket" "dev-apps-tf" {
   bucket = "dev-apps-s3"
   acl    = "private"
+}
 
 resource "aws_s3_bucket"{
   bucket = "dev-apps-s3-buck2"
   acl    = "private"
-
 }
