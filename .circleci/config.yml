@@ -49,7 +49,7 @@ workflows:
             type: approval
             requires:
               - Check changed states
-      - terraform/apply:
+      - terraform/apply: #  review and apply plan
           filters:
             branches:
               only:
