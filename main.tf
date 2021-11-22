@@ -23,7 +23,7 @@ resource "aws_s3_bucket" "dev-apps-tf" {
   acl    = "private"
 }
 
-resource "aws_s3_bucket"{
+resource "aws_s3_bucket" "dev-apps-tf-buck2"{
   bucket = "dev-apps-s3-buck2"
   acl    = "private"
 }
