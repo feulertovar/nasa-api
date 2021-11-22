@@ -18,12 +18,24 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "dev-apps-tf" {
-  bucket = "dev-apps-s3"
-  acl    = "private"
-}
+resource "aws_s3_bucket" "nasa-api-app" {
+  bucket = "nasa-api-web/nasa-api"
+  acl    = "public-read"
+  policy = file("policy.json")
 
-resource "aws_s3_bucket" "dev-apps-tf-buck2" {
-  bucket = "dev-apps-s3-buck2"
-  acl    = "private"
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+    routing_rules = <<EOF
+[{
+    "Condition": {
+        "KeyPrefixEquals": "docs/"
+    },
+    "Redirect": {
+        "ReplaceKeyPrefixWith": "documents/"
+    }
+}]
+EOF
+  }
 }
