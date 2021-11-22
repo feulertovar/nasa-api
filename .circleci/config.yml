@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - aws-s3/copy:
-          arguments: ''
+          arguments: '--recursive'
           from: ./web
           to: 's3://nasa-api-web'
 
@@ -82,9 +82,5 @@ workflows:
           name: hold_deploy
           type: approval
       - deploy:
-          filters:
-            branches:
-              only:
-                - main
           requires:
           - hold_deploy
