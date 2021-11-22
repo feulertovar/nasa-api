@@ -53,7 +53,7 @@ workflows:
           filters:
             branches:
               only:
-                - circle
+                - terra
           name: apply
           requires:
             - hold_apply
