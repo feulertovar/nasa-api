@@ -74,7 +74,12 @@ workflows:
           requires:
             - hold_apply
           tfnotify_config_path: .tfnotify.yaml
+
   #build_deploy workflow
   build_deploy:
       jobs:
-      - deploy
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
