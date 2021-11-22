@@ -78,8 +78,13 @@ workflows:
   #build_deploy workflow
   build_deploy:
       jobs:
+      - hold:
+          name: hold_deploy
+          type: approval
       - deploy:
           filters:
             branches:
               only:
                 - main
+          requires:
+          - hold_deploy
