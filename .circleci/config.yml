@@ -29,7 +29,7 @@ jobs:
       - checkout
       - aws-s3/copy:
           arguments: ''
-          from: /web/*.*
+          from: web/*.*
           to: 's3://nasa-api-web'
 
 workflows:
