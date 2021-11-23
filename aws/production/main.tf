@@ -1,6 +1,6 @@
 provider "aws" {
   profile = "default"
-  region  = "us-west-2"
+  region  = "us-east-1"
 }
 
 terraform {
@@ -13,7 +13,7 @@ terraform {
   backend "s3" {
     bucket  = "test-prod-tf-state"
     key     = "test-prod/test-prod.tfstate"
-    region  = "us-west-2"
+    region  = "us-east-1"
     encrypt = true
   }
 }
