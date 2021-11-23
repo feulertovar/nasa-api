@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - aws-s3/copy:
-          arguments: ''
+          arguments: '--recursive'
           from: ./web
           to: 's3://nasa-api-web'
 
@@ -37,6 +37,7 @@ workflows:
   terraform:
     jobs:
       - terraform/setup:
+          context: devapps
           custom_setup:
             - terraform/install_tflint:
                 install_dir: .orb-terraform/bin
@@ -47,6 +48,7 @@ workflows:
                 shell: /bin/bash -eu -o pipefail
           name: setup
       - terraform/test:
+          context: devapps
           custom_tests:
             - terraform/tflint:
                 dir: .
@@ -55,7 +57,28 @@ workflows:
           requires:
             - setup
           tfnotify_config_path: .tfnotify.yaml
+      - terraform/test:
+          context: devapps
+          custom_tests:
+            - terraform/tflint:
+                dir: aws/staging
+          dir: aws/staging
+          name: test aws/staging
+          requires:
+            - setup
+          tfnotify_config_path: .tfnotify.yaml
+      - terraform/test:
+          context: devapps
+          custom_tests:
+            - terraform/tflint:
+                dir: aws/production
+          dir: aws/production
+          name: test aws/production
+          requires:
+            - setup
+          tfnotify_config_path: .tfnotify.yaml
       - terraform/check_changed:
+          context: devapps
           name: Check changed states
           requires:
             - setup
@@ -66,6 +89,7 @@ workflows:
             requires:
               - Check changed states
       - terraform/apply: #  review and apply plan
+          context: devapps
           filters:
             branches:
               only:
@@ -82,9 +106,5 @@ workflows:
           name: hold_deploy
           type: approval
       - deploy:
-          filters:
-            branches:
-              only:
-                - main
           requires:
           - hold_deploy
