@@ -83,6 +83,8 @@ workflows:
           requires:
             - setup
             - test main
+            - test aws/staging
+            - test aws/production
       - hold:
             name: hold_apply
             type: approval
