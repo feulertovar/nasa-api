@@ -10,7 +10,7 @@ terraform {
       version = "~> 3.63"
     }
   }
-  backend "s3-prod" {
+  backend "s3" {
     bucket  = "test-prod-tf-state"
     key     = "test-prod/test-prod.tfstate"
     region  = "us-west-2"
