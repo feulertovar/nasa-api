@@ -17,13 +17,13 @@ terraform {
     encrypt = true
   }
 }
-#
-#resource "aws_s3_bucket" "api-app" {
-#  bucket = "nasa-api-web"
-#  acl    = "public-read"
 
-#  website {
-#    index_document = "index.html"
-#    error_document = "error.html"
-#  }
-#}
+resource "aws_s3_bucket" "api-app" {
+  bucket = "nasa-api-web"
+  acl    = "public-read"
+
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
