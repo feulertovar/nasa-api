@@ -57,6 +57,26 @@ workflows:
           requires:
             - setup
           tfnotify_config_path: .tfnotify.yaml
+      - terraform/test:
+          context: devapps
+          custom_tests:
+            - terraform/tflint:
+                dir: aws/staging
+          dir: aws/staging
+          name: test aws/staging
+          requires:
+            - setup
+          tfnotify_config_path: .tfnotify.yaml
+      - terraform/test:
+          context: devapps
+          custom_tests:
+            - terraform/tflint:
+                dir: aws/production
+          dir: aws/production
+          name: test aws/production
+          requires:
+            - setup
+          tfnotify_config_path: .tfnotify.yaml
       - terraform/check_changed:
           context: devapps
           name: Check changed states
