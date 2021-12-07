@@ -10,10 +10,8 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
-    
-
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -31,12 +29,12 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link rel="stylesheet"  href="css/carousel.css">
+    <link rel="stylesheet"  href="css/style.css">
   </head>
   <body>
-    
+
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
@@ -74,22 +72,40 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div id="apod2" class="carousel-item active">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
         <div class="container">
           <div class="carousel-caption text-start">
+
+            <script type="module">
+              import { NasaPhoto } from "./modules/apod.js";
+              import { EarthPhoto } from "./modules/earthpic.js";
+
+              window.addEventListener("DOMContentLoaded", event => {
+                    NasaPhoto();
+              });
+          </script>
+
             <h1>Example headline.</h1>
             <p>Some representative placeholder content for the first slide of the carousel.</p>
             <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
+      <div id="geopic" class="carousel-item">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
         <div class="container">
           <div class="carousel-caption">
+            <script type="module">
+              import { NasaPhoto } from "./modules/apod.js";
+              import { EarthPhoto } from "./modules/earthpic.js";
+
+              window.addEventListener("DOMContentLoaded", event => {
+                    EarthPhoto();
+              });
+          </script>
             <h1>Another example headline.</h1>
             <p>Some representative placeholder content for the second slide of the carousel.</p>
             <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
@@ -157,10 +173,18 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        <h2 class="featurette-heading">NASA Astronomy picture of the day. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">A new spectacular image every single day.</p>
       </div>
-      <div class="col-md-5">
+      <div id=apod class="col-md-5" >
+
+        <script type="module">
+          import { NasaPhoto } from "./modules/apod.js";
+          window.addEventListener("DOMContentLoaded", event => {
+                NasaPhoto();
+          });
+      </script>
+
         <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
       </div>
@@ -205,10 +229,10 @@
     <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 </main>
+`1
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
   </body>
 </html>

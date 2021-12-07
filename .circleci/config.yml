@@ -19,6 +19,15 @@ references:
       ignore: main
 
 # -------------------------
+#          COMMANDS
+# -------------------------
+commands:
+  local_build:
+    description: "Building locally, caching results"
+    steps:
+
+
+# -------------------------
 #          JOBS
 # --------------------------
 jobs:

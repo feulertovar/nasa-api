@@ -1,0 +1,37 @@
+  /* Universal Selector
+  * {
+    font-size: 13px;
+    }
+  /* Element Selector
+
+  h1 {
+    font-size: 1in;
+    color: darkblue;
+  }
+
+  .blue {
+    /* class selector
+    color: darkblue;
+  }
+
+  .red {
+    color: darkred;
+  }
+
+  /* Id selector */
+  #apod{
+    padding: 10px;
+    max-height: 500px;
+    max-width: 500px;
+  }
+
+  /*Attribute Selector*/
+  [id=foo] {
+    background-color: brown;
+  }
+
+  img {
+    max-height: 500px;
+    max-width: 500px;
+    object-fit: fill;
+}
