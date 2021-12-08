@@ -30,7 +30,7 @@ jobs:
       - aws-s3/copy:
           arguments: '--recursive'
           from: ./web
-          to: 's3://nasa-api-web'
+          to: 's3://nasa-api-webview'
 
 workflows:
 #terraform deploy workflow
