@@ -95,7 +95,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - terra
           name: apply
           requires:
             - hold_apply
