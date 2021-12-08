@@ -1,6 +1,6 @@
 provider "aws" {
   profile = "default"
-  region  = "us-east-1"
+  region  = "us-west-2"
 }
 
 terraform {
@@ -13,7 +13,7 @@ terraform {
   backend "s3" {
     bucket  = "nasa-api-tf-state"
     key     = "nasa-api/nasa-api.tfstate"
-    region  = "us-east-1"
+    region  = "us-west-2"
     encrypt = true
   }
 }
