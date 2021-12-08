@@ -18,8 +18,8 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "api-app" {
-  bucket = "nasa-api-web"
+resource "aws_s3_bucket" "nasa-api-app" {
+  bucket = "nasa-api-webview"
   acl    = "public-read"
 
   website {
