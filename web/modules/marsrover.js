@@ -1,18 +1,34 @@
-  function NasaPhoto() {
-        fetch(`https://api.nasa.gov/planetary/apod?api_key=5EmBpNc4trSW8OKwkmx3jnEPhfrIcwzfrddLkqtf`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.media_type === "video"){
-            let vidsrc = "<video width='420' height='315' controls='0'><source src='" + data.url + "' type='video/mp4'>Your browser does not support the video tag.</video>";
-            document.getElementById("apod").innerHTML = vidsrc;
-            console.log(data);
-          }else{
-           let imgsrc = '<img src="' + data.url + '">';
-            document.getElementById("apod").innerHTML = imgsrc;
-            console.log(data.url);
+function Rover1() {
+  var sol = document.querySelector("#sol").value
 
-          }
-        });
-     }
-export { NasaPhoto };
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=5EmBpNc4trSW8OKwkmx3jnEPhfrIcwzfrddLkqtf`)
+    .then(response => response.json())
+    .then(data => {
+      let length = Object.keys(data.photos).length;
 
+      if (length > 100) {
+        length = 100
+      }
+
+      let quantity = document.querySelector("#quantity").value
+
+      if ( ( length > 0) && ( data.photos[quantity]!= null)) {
+        var date = data.photos[quantity].earth_date
+        var url = data.photos[quantity].img_src
+
+        if (url != null) {
+          let imgsrc = '<img src="' + url + '">';
+          document.getElementById("sol1picdiv").innerHTML = imgsrc;
+          document.getElementById("sol1date").value = date;
+        } else {
+          document.getElementById("sol1date").value = "no images";
+        }
+      } else {
+        document.getElementById("sol1date").value = "no images";
+      }
+
+      console.log("size is " + length);
+      console.log(data);
+    });
+}
+export { Rover1 };

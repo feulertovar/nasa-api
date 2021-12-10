@@ -35,3 +35,18 @@
     max-width: 500px;
     object-fit: fill;
 }
+
+.divpad {
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+}
+
+.smalldivpad {
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 00px;
+  padding-left: 10px;
+  display: inline-block;
+}

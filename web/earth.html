@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap
+      contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>NASA API Viewer</title>
+
+    <link rel="canonical"
+      href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dropdowns.css" rel="stylesheet">
+
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="scripts/datepick.js"></script>
+    <link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Earth</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mars.html">Mars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="exodata.html">ExoData</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <h1> NASA API Viewer </h1>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!--
+<div class="d-flex gap-5 justify-content-md-start" id="dropdownMacos">
+  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-macos mx-0 border-0 shadow" style="width: 220px;">
+    <li><a class="dropdown-item active" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+-->
+
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette divpad">
+        <div class="col-md-3">
+          <h2 class="featurette-heading">EONET</h2> <h4><span
+              class="text-muted">Earth Observatory Natural Event Tracker</span></h4>
+          <p class="lead">look for natural events as they occur.</p>
+        </div>
+        <div id=eonetdiv class="col-md-8">
+          <div class="row">
+            <div class="col-3">
+              <div class="form-outline">
+                <input name="date" type="text" id="numDays" class="form-control"
+                  value="5" />
+                <label class="form-label" for="numDays">Limit</label>
+              </div>
+            </div>
+            <div class="col-2"><button id="btneonet" type="button" class="btn
+                btn-primary">Get Events</button></div>
+            <div class="col-2">Title</div>
+            <div class="col-4">URL</div>
+
+            <div id="eonetinfodiv" class="col-md-11"></div>
+
+          </div>
+          <script type="module">
+          import { EONET } from "./modules/eonet.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            document.getElementById("btneonet").addEventListener("click", event => {
+              EONET()
+            });
+          });
+
+      </script>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette divpad">
+        <div class="col-md-3">
+          <h2 class="featurette-heading">EARTH</h2> <h4><span
+              class="text-muted">High-Res Earth</span></h4>
+          <p class="lead">look for natural events as they occur.</p>
+        </div>
+        <div id=eonetdiv class="col-md-8">
+          <div class="row">
+            <div class="col-3">
+              <div class="form-outline">
+                <input name="daterange2" type="text" id="numDays"
+                  class="form-control" value="01/01/2018 - 01/15/2021" />
+                <label class="form-label" for="numDays">Date Range</label>
+              </div>
+            </div>
+            <div class="col-2"><button id="btnres" type="button" class="btn
+                btn-primary">Earth Res</button></div>
+            <!--
+          <div class="col-2">Title</div>
+          <div class="col-4">URL</div>
+          -->
+            <div id="respicdiv" class="col-md-5">
+            </div>
+            <script type="module">
+          import { ResPic } from "./modules/earthres.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            document.getElementById("btnres").addEventListener("click", event => {
+              ResPic()
+            });
+          });
+
+      </script>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette divpad">
+          <div class="col-md-3">
+            <h2 class="featurette-heading">Landsat satellite imagery <span
+                class="text-muted"></span></h2>
+            <p class="lead">powered by Google Earth Engine API,</p>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-3">
+                <div class="form-outline">
+                  <input name="daterange3" type="text" id="geoDay"
+                    class="form-control" value="01-01-2020" />
+                  <label class="form-label" for="geoDay">Date Range</label>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-outline">
+                  <input name="longitude" type="text" id="longitude"
+                    class="form-control" value="100.75" />
+                  <label class="form-label" for="longitude">Longitude</label>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-outline">
+                  <input name="latitude" type="text" id="latitude"
+                    class="form-control" value="1.5" />
+                  <label class="form-label" for="latitude">Latitude</label>
+                </div>
+              </div>
+              <div class="col-3"><button id="btngeo" type="button" class="btn
+                  btn-primary">Get GeoPic</button></div>
+            </div>
+
+            <div id="geopicdiv" class="col-md-5">
+
+            </div>
+            <script type="module">
+          import { GeoPic } from "./modules/earth.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            document.getElementById("btngeo").addEventListener("click", event => {
+              GeoPic()
+            });
+          });
+      </script>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a>
+          &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
+
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+</html>
