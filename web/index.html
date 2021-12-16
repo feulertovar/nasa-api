@@ -1,307 +1,320 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap
       contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>NASA API Viewer</title>
+  <meta name="generator" content="Hugo 0.88.1">
+  <title>NASA API Viewer</title>
 
-    <link rel="canonical"
-      href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/carousel.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+<body>
 
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Home</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link" href="earth.html">Earth</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="mars.html">Mars</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="exodata.html">ExoData</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <h1> NASA API Viewer </h1>
-            </form>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="earth.html">Earth</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mars.html">Mars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exodata.html">ExoData</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <h1> NASA API Viewer </h1>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div id="mars0" class="carousel-item active">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
+
+          <div class="container">
+            <div class="carousel-caption text-start">
+
+              <script type="module">
+                import { MarsCarousel0 } from "./modules/marscarousel0.js";
+                window.addEventListener("DOMContentLoaded", event => {
+                  MarsCarousel0();
+                });
+              </script>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
+        <div id="mars1" class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
 
-    <main>
+          <div class="container">
+            <div class="carousel-caption">
+              <script type="module">
+                import { MarsCarousel1 } from "./modules/marscarousel1.js";
 
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel"
-            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                window.addEventListener("DOMContentLoaded", event => {
+                  MarsCarousel1();
+                });
+              </script>
+              <h1>Another example headline.</h1>
+              <p>Some representative placeholder content for the second
+                slide of the carousel.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
         </div>
-        <div class="carousel-inner">
-          <div id="mars0" class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-              preserveAspectRatio="xMidYMid slice" focusable="false"><rect
-                width="100%" height="100%" fill="#777" /></svg>
+        <div id="mars2" class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
 
-              <div class="container">
-                <div class="carousel-caption text-start">
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <script type="module">
+                import { MarsCarousel2 } from "./modules/marscarousel2.js";
 
-                  <script type="module">
-              import { MarsCarousel0 } from "./modules/marscarousel0.js";
-              window.addEventListener("DOMContentLoaded", event => {
-                   MarsCarousel0();
-                  });
-          </script>
-                  <h1>Example headline.</h1>
-                  <p>Some representative placeholder content for the first slide
-                    of the carousel.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                </div>
-              </div>
+                window.addEventListener("DOMContentLoaded", event => {
+                  MarsCarousel2();
+                });
+              </script>
+              <h1>One more for good measure.</h1>
+              <p>Some representative placeholder content for the third
+                slide of this carousel.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Browse
+                  gallery</a></p>
             </div>
-            <div id="mars1" class="carousel-item">
-              <svg class="bd-placeholder-img" width="100%" height="100%"
-                xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                preserveAspectRatio="xMidYMid slice" focusable="false"><rect
-                  width="100%" height="100%" fill="#777" /></svg>
-
-                <div class="container">
-                  <div class="carousel-caption">
-                    <script type="module">
-              import { MarsCarousel1 } from "./modules/marscarousel1.js";
-
-              window.addEventListener("DOMContentLoaded", event => {
-                MarsCarousel1();
-              });
-          </script>
-                    <h1>Another example headline.</h1>
-                    <p>Some representative placeholder content for the second
-                      slide of the carousel.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                  </div>
-                </div>
-              </div>
-              <div id="mars2" class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%"
-                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                  preserveAspectRatio="xMidYMid slice" focusable="false"><rect
-                    width="100%" height="100%" fill="#777" /></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption text-end">
-                      <script type="module">
-              import { MarsCarousel2 } from "./modules/marscarousel2.js";
-
-              window.addEventListener("DOMContentLoaded", event => {
-                MarsCarousel2();
-              });
-          </script>
-                      <h1>One more for good measure.</h1>
-                      <p>Some representative placeholder content for the third
-                        slide of this carousel.</p>
-                      <p><a class="btn btn-lg btn-primary" href="#">Browse
-                          gallery</a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button"
-                data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button"
-                data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
 
-            <!-- Marketing messaging and featurettes
+    <!-- Marketing messaging and featurettes
   ================================================== -->
-            <!-- Wrap the rest of the page in another container to center all the content. -->
-            <div class="container marketing">
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="container marketing">
 
-              <!-- Three columns of text below the carousel -->
-              <div class="row">
-                <div class="col-lg-4">
-                  <svg class="bd-placeholder-img rounded-circle" width="140"
-                    height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect
-                      width="100%" height="100%" fill="#777" /><text x="50%"
-                        y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg>
 
-                    <h2>API</h2>
-                    <p></p>
-                  </div><!-- /.col-lg-4 -->
-                  <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140"
-                      height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                      aria-label="Placeholder: 140x140"
-                      preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect
-                        width="100%" height="100%" fill="#777" /><text x="50%"
-                          y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                      <h2>WEB</h2>
-                      <p></p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                      <svg class="bd-placeholder-img rounded-circle" width="140"
-                        height="140" xmlns="http://www.w3.org/2000/svg"
-                        role="img" aria-label="Placeholder: 140x140"
-                        preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect
-                          width="100%" height="100%" fill="#777" /><text x="50%"
-                            y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                        <h2>Viewer</h2>
-                        <p></p>
+          <h2>API</h2>
+          <p></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg>
+          <h2>WEB</h2>
+          <p></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg>
+          <h2>Viewer</h2>
+          <p></p>
 
-                      </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
 
 
-                    <!-- START THE FEATURETTES -->
+      <!-- START THE FEATURETTES -->
 
-                    <hr class="featurette-divider">
+      <hr class="featurette-divider">
 
-                    <div class="row featurette">
-                      <div class="col-md-7">
-                        <h2 class="featurette-heading">NASA Astronomy picture of
-                          the day. <span class="text-muted">It’ll blow your
-                            mind.</span></h2>
-                        <p class="lead">A new spectacular image every single
-                          day.</p>
-                      </div>
-                      <div id=apod class="col-md-5">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">NASA Astronomy picture of
+            the day. <span class="text-muted">It’ll blow your
+              mind.</span></h2>
+          <p class="lead">A new spectacular image every single
+            day.</p>
+        </div>
+        <div id=apod class="col-md-4">
 
-                        <script type="module">
-          import { NasaPhoto } from "./modules/apod.js";
-          window.addEventListener("DOMContentLoaded", event => {
-                NasaPhoto();
-          });
-      </script>
-                        <svg class="bd-placeholder-img bd-placeholder-img-lg
-                          featurette-image img-fluid mx-auto" width="500"
-                          height="500" xmlns="http://www.w3.org/2000/svg"
-                          role="img" aria-label="Placeholder: 500x500"
-                          preserveAspectRatio="xMidYMid slice"
-                          focusable="false"><title>Placeholder</title><rect
-                            width="100%" height="100%" fill="#eee" /><text
-                              x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-                        </div>
-                      </div>
+          <script type="module">
+            import { NasaPhoto } from "./modules/apod.js";
+            window.addEventListener("DOMContentLoaded", event => {
+              NasaPhoto();
 
-                      <hr class="featurette-divider">
+              //when any button is clicked or moused over
+              $('#apod').on('click', event => {
+                alert("Apod Images, New one everyday!");
+              });
 
-                      <div class="row featurette">
-                        <div class="col-md-7 order-md-2">
-                          <h2 class="featurette-heading">Random APOD Image<span
-                              class="text-muted"></span></h2>
-                          <p class="lead">APOD of another day in the cosmos</p>
-                        </div>
-                        <div id="apod2" class="col-md-5 order-md-1">
+            });
 
-                          <script type="module">
-          import { Apod2 } from "./modules/apod2.js";
-          window.addEventListener("DOMContentLoaded", event => {
-                Apod2();
-          });
-      </script>
-                          <svg class="bd-placeholder-img bd-placeholder-img-lg
-                            featurette-image img-fluid mx-auto" width="500"
-                            height="500" xmlns="http://www.w3.org/2000/svg"
-                            role="img" aria-label="Placeholder: 500x500"
-                            preserveAspectRatio="xMidYMid slice"
-                            focusable="false"><title>Placeholder</title><rect
-                              width="100%" height="100%" fill="#eee" /><text
-                                x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-                          </div>
-                        </div>
+          </script>
+        </div>
+      </div>
 
-                        <hr class="featurette-divider">
+      <hr class="featurette-divider">
 
-                        <div class="row featurette">
-                          <div class="col-md-7">
-                            <h2 class="featurette-heading">Another APOD Pic
-                              <span class="text-muted"></span></h2>
-                            <p class="lead">powered by Google Earth Engine API,</p>
-                          </div>
-                          <div id="apod3" class="col-md-5">
+      <div class="row featurette">
+        <div class="col-md-5 order-md-2">
+          <h2 class="featurette-heading">Random APOD Image<span class="text-muted"></span></h2>
+          <p class="lead">APOD of another day in the cosmos</p>
+        </div>
+        <div id="apod2" class="col-md-7 order-md-1">
 
-                            <script type="module">
-          import { Apod3 } from "./modules/apod3.js";
-          window.addEventListener("DOMContentLoaded", event => {
-                Apod3();
-          });
-      </script>
-                            <svg class="bd-placeholder-img bd-placeholder-img-lg
-                              featurette-image img-fluid mx-auto" width="500"
-                              height="500" xmlns="http://www.w3.org/2000/svg"
-                              role="img" aria-label="Placeholder: 500x500"
-                              preserveAspectRatio="xMidYMid slice"
-                              focusable="false"><title>Placeholder</title><rect
-                                width="100%" height="100%" fill="#eee" /><text
-                                  x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-                            </div>
-                          </div>
+          <script type="module">
+            import { Apod2 } from "./modules/apod2.js";
+            window.addEventListener("DOMContentLoaded", event => {
+              Apod2();
 
-                          <hr class="featurette-divider">
+              //when any button is clicked or moused over
+              $('#apod2').on('mouseover', event => {
+                alert("Random pic, refresh page for a new one!");
+              });
 
-                          <!-- /END THE FEATURETTES -->
+            });
+          </script>
+        </div>
+      </div>
 
-                        </div><!-- /.container -->
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Another APOD Pic
+            <span class="text-muted"></span>
+          </h2>
+          <p class="lead">powered by Google Earth Engine API,</p>
+        </div>
+        <div id="apod3" class="col-md-5">
+
+          <script type="module">
+            import { Apod3 } from "./modules/apod3.js";
+            window.addEventListener("DOMContentLoaded", event => {
+              Apod3();
+
+              //when any button is clicked or moused over
+              $('#apod3').on('click', event => {
+                alert("Another random pic, refresh page for a new one!");
+              });
+
+            });
+              //ES6 Class Definition
+              class Astronomy {
+                // constructor() { }
+                constructor(planet, moon, star) {
+                  this.planet = planet;
+                  this.moon = moon;
+                  this.star = star;
+                }
+                // Simple class instance methods using short-hand method
+                // declaration
+                sayPlanet() {
+                  console.log(this.planet);
+                }
+
+                sayMoon() {
+                  console.log(this.moon);
+                }
+
+                sayStar(){
+                  console.log(this. star);
+                }
+
+          }
+              //instantiate instance
+              let a = new Astronomy("Jupiter", "Titan", "Sun");
+              a.sayPlanet();
+              a.sayMoon();
+              a.sayStar();
+
+          </script>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
 
 
-                        <!-- FOOTER -->
-                        <footer class="container">
-                          <p class="float-end"><a href="#">Back to top</a></p>
-                          <p>&copy; 2017–2021 Company, Inc. &middot; <a
-                              href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-                        </footer>
-                      </main>
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+  </main>
 
 
-                      <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-                    </body>
-                  </html>
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
