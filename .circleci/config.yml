@@ -30,7 +30,7 @@ jobs:
       - aws-s3/copy:
           arguments: '--recursive'
           from: ./web
-          to: 's3://nasa-api-web'
+          to: 's3://nasa-api-webview'
 
 workflows:
 #terraform deploy workflow
@@ -83,6 +83,8 @@ workflows:
           requires:
             - setup
             - test main
+            - test aws/staging
+            - test aws/production
       - hold:
             name: hold_apply
             type: approval
@@ -93,7 +95,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - terra
           name: apply
           requires:
             - hold_apply

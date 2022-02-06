@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap
+      contributors">
+  <meta name="generator" content="Hugo 0.88.1">
+  <title>NASA API Viewer</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="scripts/increment.js"></script>
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="earth.html">Earth</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Mars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exodata.html">ExoData</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <h1> NASA API Viewer </h1>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+
+    </script>
+  </header>
+
+  <main>
+
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette divpad">
+      <div class="col-md-5">
+        <h2 class="featurette-heading">Mars Rover Images</h2>
+        <h4><span class="text-muted">Curious about CURIOSITY</span></h4>
+        <p class="lead">Photos by Curiosity rover based on Sol ( 24h39m35s )</p>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-2">
+            <div class="form-outline">
+              <input name="sol" type="text" id="sol" class="form-control" value="10" />
+              <label class="form-label" for="sol">Sol</label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="soldate" type="text" id="sol1date" class="form-control" value="" />
+              <label class="form-label" for="sol1date">Date / Status</label>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button id="btnminus1" type="button" class="quantity-left-minus btn
+                    btn-danger btn-number" data-type="minus" data-field="">
+                  <label class="form-label" for="btnminus1">-</label>
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+              </span>
+              <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1"
+                max="100" />
+              <span class="input-group-btn">
+                <button id="btnplus1" type="button" class="quantity-right-plus btn
+                    btn-success btn-number" data-type="plus" data-field="">
+                  <label class="form-label" for="btnminus1">+</label>
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id=sol1picdiv class="col-md-5 rover" style="width: 500px; height: 500px;">
+
+        </div>
+        <script type="module">
+          import { Rover1 } from "./modules/marsrover.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            document.getElementById("btnminus1").addEventListener("click", event => {
+              Rover1()
+            });
+            document.getElementById("btnplus1").addEventListener("click", event => {
+              Rover1()
+            });
+            $('#sol1picdiv').on('click', event => {
+              alert("Try from Sol 0 to 1000 for good pics!");
+            });
+          });
+        </script>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+    <div class="row featurette divpad">
+      <div class="col-md-5">
+        <h2 class="featurette-heading">Another Mars Rover</h2>
+        <h4><span class="text-muted">Seize the OPPORTUNITY</span></h4>
+        <p class="lead">Photos by Opportunity rover based on Sol ( 24h39m35s )</p>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-2">
+            <div class="form-outline">
+              <input name="sol2" type="text" id="sol2" class="form-control" value="10" />
+              <label class="form-label" for="sol2">Sol</label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="sol2date" type="text" id="sol2date" class="form-control" value="" />
+              <label class="form-label" for="sol2date">Date / Status</label>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button id="btnminus2" type="button" class="quantity-left-minus btn
+                    btn-danger btn-number" data-type="minus" data-field="">
+                  <label class="form-label" for="btnminus2">-</label>
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+              </span>
+              <input type="text" id="quantity2" name="quantity" class="form-control input-number" value="1" min="1"
+                max="100">
+              <span class="input-group-btn">
+                <button id="btnplus2" type="button" class="quantity-right-plus btn
+                    btn-success btn-number" data-type="plus" data-field="">
+                  <label class="form-label" for="btnplus2">+</label>
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id=sol2picdiv class="col-md-5 rover" style="width: 500px; height: 500px;">
+
+        </div>
+        <script type="module">
+          import { Rover2 } from "./modules/marsrover2.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            document.getElementById("btnminus2").addEventListener("click", event => {
+              Rover2()
+            });
+            document.getElementById("btnplus2").addEventListener("click", event => {
+              Rover2()
+            });
+
+            $('#sol2picdiv').on('click', event => {
+              alert("Try Sol 0 - 200 for good pics!");
+            });
+          });
+        </script>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette divpad">
+      <div class="col-md-5">
+        <h2 class="featurette-heading">One last Mars Rover</h2>
+        <h4><span class="text-muted">Lets get in the SPIRIT</span></h4>
+        <p class="lead">Photos by Spirit rover based on Sol ( 24h39m35s )</p>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-2">
+            <div class="form-outline">
+              <input name="sol3" type="text" id="sol3" class="form-control" value="10" />
+              <label class="form-label" for="sol3">Sol</label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="sol3date" type="text" id="sol3date" class="form-control" value="" />
+              <label class="form-label" for="sol3date">Date / Status</label>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button id="btnminus3" type="button" class="quantity-left-minus btn
+                      btn-danger btn-number" data-type="minus" data-field="">
+                  <label class="form-label" for="btnminus3">-</label>
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+              </span>
+              <input type="text" id="quantity3" name="quantity3" class="form-control input-number" value="1" min="1"
+                max="100">
+              <span class="input-group-btn">
+                <button id="btnplus3" type="button" class="quantity-right-plus btn
+                      btn-success btn-number" data-type="plus" data-field="">
+                  <label class="form-label" for="btnplus3">+</label>
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+        <div id=sol3picdiv class="col-md-5 rover" style="width: 500px; height: 500px;">
+
+        </div>
+        <script type="module">
+          import { Rover3 } from "./modules/marsrover3.js";
+          window.addEventListener("DOMContentLoaded", event => {
+            /*  document.getElementById("btnrover1").addEventListener("click", event => {
+                Rover1()
+              });*/
+            document.getElementById("btnminus3").addEventListener("click", event => {
+              Rover3()
+            });
+            document.getElementById("btnplus3").addEventListener("click", event => {
+              Rover3()
+            });
+
+            //when any button is clicked or moused over
+            $('#sol3picdiv').on('click', event => {
+              alert("Try Sol 0 - 200 for good pics!");
+            });
+
+          });
+        </script>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a>
+        &middot; <a href="#">Terms</a></p>
+    </footer>
+  </main>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

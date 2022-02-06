@@ -1,0 +1,145 @@
+  /* Descendent selector */
+  div sgv{
+    background-color: white;
+  }
+
+  div button{
+    border: lightseagreen;
+  }
+
+  form h1{
+    color: lightgray;
+  }
+
+  ul li {
+    color: lightgray;
+  }
+
+  header h2  {
+    text-align: center;
+  }
+
+  footer p  {
+    color: grey;
+  }
+
+  div h2{
+    font-weight: 300;
+  }
+
+  div h1{
+    font-weight: 500;
+ }
+
+ div p{
+  font-weight: 300;
+ }
+
+ div h2 p{
+  font-weight: 500;
+ }
+
+  /* Adjacent selector */
+
+  div + h1 {
+    background-color: white;
+  }
+
+  div + h2 {
+    background-color: white;
+  }
+
+  div + p {
+    background-color: lightslategray;
+  }
+
+  div + form {
+    background-color: rgb(116, 116, 114);
+  }
+
+  h1 + p {
+    background-color: transparent;
+  }
+
+  div + p {
+    font-family: Arial;
+  }
+
+  h2 + h4 {
+    color: rgb(33, 12, 110);
+  }
+
+  a + button {
+    background-color: transparent;
+  }
+
+  div + input {
+    background-color: rgb(224, 224, 220);
+  }
+
+  div input + label {
+    font-weight: 300;
+  }
+
+  /* Id selector */
+  #apod{
+    padding: 10px;
+    max-height: 500px;
+    max-width: 500px;
+  }
+  #rover{
+    padding: 5px;
+    max-height: 550px;
+    max-width: 550px;
+  }
+  /*Attribute Selector*/
+  [id=foo] {
+    background-color: brown;
+  }
+
+img {
+    max-height: 500px;
+    max-width: 500px;
+    object-fit: fill;
+}
+
+/*class selectors*/
+.divpad {
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+}
+
+.smalldivpad {
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 00px;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+/*pseudo element selectors*/
+p::first-line {
+  color: #817f7f;
+  font-variant: small-caps;
+}
+
+p.intro::first-letter {
+  color: #4d4bf5;
+  font-size: 200%;
+}
+
+h1::before {
+  font-size: 23px;
+}
+
+::marker {
+  color: red;
+  font-size: 23px;
+}
+
+p::footer {
+  color: rgb(255, 255, 255);
+  background: rgb(49, 49, 48);
+}

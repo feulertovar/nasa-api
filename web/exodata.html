@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.88.1">
+  <title>NASA API Viewer</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="scripts/datepick.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  </script>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="earth.html">Earth</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mars.html">Mars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="exodata.html">ExoData</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <h1> NASA API Viewer </h1>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <hr class="featurette-divider">
+
+    <div class="row featurette divpad">
+      <div class="col-md-3">
+        <h2 class="featurette-heading">Asteroid NeoWs</h2>
+        <h4><span class="text-muted">Near Earth Object Web Service</span></h4>
+        <p class="lead">a RESTful web service for near earth Asteroid information</p>
+      </div>
+      <div id=neowsdiv class="col-md-9 smalldivpad">
+        <div class="row">
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="daterange4" type="text" id="numDays" class="form-control" value="01/01/2020 - 01/07/2020" />
+              <label class="form-label" for="numDays">Date Range</label>
+            </div>
+          </div>
+
+          <div class="col-1"><button id="btnneows" type="button" class="btn btn-primary">NeoWs</button></div>
+          <div class="col-2">Name</div>
+          <div class="col-3">Url</div>
+          <div class="col-2">Hazard</div>
+        </div>
+
+        <div id=neowsinfodiv class="col-md-12">
+        </div>
+
+      </div>
+
+      <script type="module">
+        import { NEOWS } from "./modules/neows.js";
+        window.addEventListener("DOMContentLoaded", event => {
+          document.getElementById("btnneows").addEventListener("click", event => {
+            NEOWS()
+          });
+        });
+
+      </script>
+
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette divpad">
+      <div class="col-md-3">
+        <h2 class="featurette-heading">Geomagnetic Storms</h2>
+        <h4><span class="text-muted">Its rough out there</span></h4>
+        <p class="lead">a RESTful web service for geomagnetic storm information</p>
+      </div>
+      <div id=geowsdiv class="col-md-9">
+        <div class="row">
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="daterange5" type="text" id="stormDays" class="form-control"
+                value="01/01/2018 - 01/15/2021" />
+              <label class="form-label" for="stormDays">Date Range</label>
+            </div>
+          </div>
+
+          <div class="col-2"><button id="btngeows" type="button" class="btn btn-primary">Geos</button></div>
+          <div class="col-2">Location</div>
+          <div class="col-3 .smalldivpad">Url</div>
+        </div>
+
+        <div id=geowsinfodiv class="col-md-12 ">
+        </div>
+
+      </div>
+      <script type="module">
+        import { GEOWS } from "./modules/geows.js";
+        window.addEventListener("DOMContentLoaded", event => {
+          document.getElementById("btngeows").addEventListener("click", event => {
+            GEOWS()
+          });
+        });
+
+      </script>
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette divpad">
+      <div class="col-md-3">
+        <h2 class="featurette-heading">Corona Mass Ejections</h2>
+        <h4><span class="text-muted">Coronal Mass Ejection (CME) Analysis</span></h4>
+        <p class="lead">a RESTful web service for near earth Asteroid information</p>
+      </div>
+      <div id=coronaldiv class="col-md-9">
+        <div class="row">
+          <div class="col-3">
+            <div class="form-outline">
+              <input name="daterange6" type="text" id="coroDays" class="form-control" value="01/01/2018 - 01/15/2021" />
+              <label class="form-label" for="coroDays">Date Range</label>
+            </div>
+          </div>
+          <div class="col-2"><button id="btncoronal" type="button" class="btn btn-primary">Coronas</button></div>
+
+          <div class="col-2">startTime</div>
+          <div class="col-3">Url</div>
+        </div>
+        <div id=coronalinfodiv class="col-md-12">
+        </div>
+      </div>
+
+      <script type="module">
+        import { CORONAL } from "./modules/coronal.js";
+        window.addEventListener("DOMContentLoaded", event => {
+          document.getElementById("btncoronal").addEventListener("click", event => {
+            CORONAL()
+          });
+        });
+      </script>
+
+    </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+  </main>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
